@@ -16,7 +16,7 @@ class FormRegister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => Column(
+      () => ListView(
         children: [
           Padding(
             padding: Get.height > 750
@@ -27,6 +27,7 @@ class FormRegister extends StatelessWidget {
               width: 200,
             ),
           ),
+          const SizedBox(height: 20),
           if (Get.height < 750) const SizedBox(height: 10),
           Expanded(
             child: Padding(
@@ -111,7 +112,8 @@ class FormRegister extends StatelessWidget {
                           if (value.length < 8) {
                             return 'Password minimal berjumlah 8 karakter';
                           } else {
-                            if (!AppHelpers.passwordValidation.hasMatch(value)) {
+                            if (!AppHelpers.passwordValidation
+                                .hasMatch(value)) {
                               return 'Setidaknya password harus mengandung 1 huruf besar, 1 huruf kecil, dan 1 angka';
                             }
                           }
@@ -147,7 +149,22 @@ class FormRegister extends StatelessWidget {
                         return null;
                       },
                     ),
-                    const SizedBox(height: 50),
+                    const SizedBox(height: 15),
+                    BaseFormGroupFieldAuth(
+                      label: 'Kode Referral (Optional)',
+                      hint: 'Masukkan kode referral anda',
+                      controller: controller.referralController.value,
+                      suffixIcon: IconButton(
+                        color: Colors.white,
+                        onPressed: controller.scanBarcode,
+                        icon: const Icon(Icons.camera),
+                      ),
+                    ),
+                    Text(
+                      'Scan Result: ${controller.barcode.value}',
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 40),
                     SizedBox(
                       width: Get.width,
                       child: BaseButton(

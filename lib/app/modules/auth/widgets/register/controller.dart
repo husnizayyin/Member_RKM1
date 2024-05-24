@@ -1,6 +1,7 @@
+import 'package:barcode_scan2/barcode_scan2.dart';
+import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dio/dio.dart' as dio;
 import 'package:member_rkm/app/core/values/show_loading.dart';
 import 'package:member_rkm/app/core/values/snackbars.dart';
 import 'package:member_rkm/app/data/providers/register_provider.dart';
@@ -16,11 +17,14 @@ class RegisterController extends GetxController {
   final phoneController = TextEditingController().obs;
   final passwordController = TextEditingController().obs;
   final confirmPasswordController = TextEditingController().obs;
+  final referralController = TextEditingController().obs;
+  //final barcodeController = TextEditingController().obs;
   final showPass = true.obs;
   final showConfirmPass = true.obs;
   final loading = false.obs;
 
   final username = Rx<String?>(null);
+  final barcode = ''.obs;
 
   @override
   void onClose() {
@@ -29,6 +33,7 @@ class RegisterController extends GetxController {
     phoneController.value.dispose();
     passwordController.value.dispose();
     confirmPasswordController.value.dispose();
+    referralController.value.dispose();
     super.onClose();
   }
 
@@ -39,6 +44,7 @@ class RegisterController extends GetxController {
       'phone_user': phoneController.value.text,
       'password': passwordController.value.text,
       'password_confirmation': confirmPasswordController.value.text,
+      'referal': referralController.value.text,
     });
 
     showLoading();
@@ -56,7 +62,7 @@ class RegisterController extends GetxController {
           );
           Get.offAndToNamed('/verify', arguments: {
             'email': response.data['email'],
-            'phone_user': phoneController.value.text,
+            '': phoneController.value.text,
           });
         }
       }
@@ -95,6 +101,16 @@ class RegisterController extends GetxController {
       }
     } finally {
       loading.value = false;
+    }
+  }
+
+  Future<void> scanBarcode() async {
+    try {
+      var result = await BarcodeScanner.scan();
+      barcode.value = result.rawContent;
+      //barcodeController.value = result.rawContent as TextEditingController;
+    } catch (e) {
+      barcode.value = 'Failed to get the barcode.';
     }
   }
 }
