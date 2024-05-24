@@ -44,7 +44,11 @@ class RegisterController extends GetxController {
       'phone_user': phoneController.value.text,
       'password': passwordController.value.text,
       'password_confirmation': confirmPasswordController.value.text,
-      'referal': referralController.value.text,
+      // 'referal': referralController.value.text,
+      'referal': barcode.value.toString(),
+
+      
+      
     });
 
     showLoading();
