@@ -152,17 +152,13 @@ class FormRegister extends StatelessWidget {
                     const SizedBox(height: 15),
                     BaseFormGroupFieldAuth(
                       label: 'Kode Referral (Optional)',
-                      hint: 'Masukkan kode referral anda',
-                      controller: controller.referralController.value,
+                      hint: 'Scan atau masukkan kode referral anda',
+                      controller: controller.barcodeController,
                       suffixIcon: IconButton(
                         color: Colors.white,
                         onPressed: controller.scanBarcode,
                         icon: const Icon(Icons.camera),
                       ),
-                    ),
-                    Text(
-                      'Scan Result: ${controller.barcode.value}',
-                      textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 40),
                     SizedBox(
