@@ -18,13 +18,13 @@ class RegisterController extends GetxController {
   final passwordController = TextEditingController().obs;
   final confirmPasswordController = TextEditingController().obs;
   final referralController = TextEditingController().obs;
-  //final barcodeController = TextEditingController().obs;
   final showPass = true.obs;
   final showConfirmPass = true.obs;
   final loading = false.obs;
 
   final username = Rx<String?>(null);
   final barcode = ''.obs;
+  final barcodeController = TextEditingController();
 
   @override
   void onClose() {
@@ -34,6 +34,7 @@ class RegisterController extends GetxController {
     passwordController.value.dispose();
     confirmPasswordController.value.dispose();
     referralController.value.dispose();
+    barcodeController.dispose();
     super.onClose();
   }
 
@@ -112,7 +113,8 @@ class RegisterController extends GetxController {
     try {
       var result = await BarcodeScanner.scan();
       barcode.value = result.rawContent;
-      //barcodeController.value = result.rawContent as TextEditingController;
+      barcodeController.text = result.rawContent;
+      print(result.rawContent);
     } catch (e) {
       barcode.value = 'Failed to get the barcode.';
     }

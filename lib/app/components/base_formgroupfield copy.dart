@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:member_rkm/app/components/base_text.dart';
 import 'package:member_rkm/app/core/values/colors.dart';
 
-
 class BaseFormGroupField extends StatelessWidget {
   const BaseFormGroupField({
     super.key,
@@ -88,6 +87,7 @@ class BaseFormGroupFieldAuth extends StatelessWidget {
     this.validator,
     this.prefixIcon,
     this.suffixIcon,
+    this.suffixText,
     this.obscureText = false,
     this.keyboardType,
     this.onTap,
@@ -104,6 +104,7 @@ class BaseFormGroupFieldAuth extends StatelessWidget {
   final String? helper;
   final String? initialValue;
   final Widget? suffixIcon;
+  final String? suffixText;
   final Widget? prefixIcon;
   final bool obscureText;
   final bool readOnly;
@@ -142,6 +143,7 @@ class BaseFormGroupFieldAuth extends StatelessWidget {
           cursorColor: Colors.grey.shade500,
           decoration: InputDecoration(
             suffixIcon: suffixIcon,
+            suffixText: suffixText,
             prefixIcon: prefixIcon,
             hintText: hint,
             helperText: helper,
