@@ -18,6 +18,8 @@ class RegisterController extends GetxController {
   final passwordController = TextEditingController().obs;
   final confirmPasswordController = TextEditingController().obs;
   final referralController = TextEditingController().obs;
+  final chooseVerify = Rx<String?>(null);
+
   final showPass = true.obs;
   final showConfirmPass = true.obs;
   final loading = false.obs;
@@ -31,12 +33,14 @@ class RegisterController extends GetxController {
     namaController.value.dispose();
     emailController.value.dispose();
     phoneController.value.dispose();
+    chooseVerify.value = null;
     passwordController.value.dispose();
     confirmPasswordController.value.dispose();
     referralController.value.dispose();
     barcodeController.dispose();
     super.onClose();
   }
+  
 
   void register() async {
     final formData = dio.FormData.fromMap({
@@ -47,9 +51,7 @@ class RegisterController extends GetxController {
       'password_confirmation': confirmPasswordController.value.text,
       // 'referal': referralController.value.text,
       'referal': barcode.value.toString(),
-
-      
-      
+ 
     });
 
     showLoading();
@@ -67,7 +69,7 @@ class RegisterController extends GetxController {
           );
           Get.offAndToNamed('/verify', arguments: {
             'email': response.data['email'],
-            '': phoneController.value.text,
+            'phone_user': phoneController.value.text,
           });
         }
       }

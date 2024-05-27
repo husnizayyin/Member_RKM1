@@ -26,6 +26,8 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to your camera to scan barcodes for item identification.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Need Access location for find nearby store</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -38,8 +40,6 @@
 	<string>Membutuhkan akses untuk mengakses media</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Membutuhkan akes untuk mengupload photo profile</string>
-    <key>NSCameraUsageDescription</key>
-    <string>We need access to your camera to scan barcodes for item identification.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
@@ -52,7 +52,9 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIStatusBarHidden</key>
-	<true/>
+	<false/>
+	<key>UIStatusBarStyle</key>
+	<string></string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -70,4 +72,3 @@
 	<false/>
 </dict>
 </plist>
-e

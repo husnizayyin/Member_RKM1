@@ -20,18 +20,20 @@ class FormRegister extends StatelessWidget {
         children: [
           Padding(
             padding: Get.height > 750
-                ? const EdgeInsets.fromLTRB(15, 40, 15, 0)
+                ? const EdgeInsets.fromLTRB(15, 20, 15, 0)
                 : const EdgeInsets.all(15),
             child: SvgPicture.asset(
               'assets/images/logo.svg',
               width: 200,
             ),
           ),
+          
           const SizedBox(height: 20),
           if (Get.height < 750) const SizedBox(height: 10),
+          
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
+              padding: const EdgeInsets.fromLTRB(15,5,15,0),
               child: Form(
                 key: controller.formKey.value,
                 child: Column(

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:member_rkm/app/core/values/show_loading.dart';
 import 'package:member_rkm/app/core/values/snackbars.dart';
-import 'package:member_rkm/app/data/providers/verify_provider%20copy.dart';
+import 'package:member_rkm/app/data/providers/verify_provider.dart';
 import 'package:open_mail_app/open_mail_app.dart';
 
 class VerifyController extends GetxController {
@@ -49,6 +49,7 @@ class VerifyController extends GetxController {
     final formData = dio.FormData.fromMap({
       'type': 'wa',
       'value': phoneNumber.value,
+    
     });
 
     showLoading();
