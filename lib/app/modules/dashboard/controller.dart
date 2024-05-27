@@ -145,6 +145,7 @@ class DashboardController extends GetxController {
             ? []
             : listContentFromJson(jsonEncode(response.data['data']));
         content.value = body;
+        print(response.data['data']);
       }
     } on DioException catch (e) {
       failedSnackbar(
@@ -358,15 +359,11 @@ class DashboardController extends GetxController {
                 ? 'assets/images/mapicon_android.png'
                 : 'assets/images/mapicon_ios.png',
           ),
-          
           position: LatLng(
             double.parse(element.lat ?? ''),
             double.parse(element.long ?? ''),
-            
           ),
-
         ),
-        
       );
     }
   }
@@ -378,9 +375,8 @@ class DashboardController extends GetxController {
       CameraUpdate.newCameraPosition(
         CameraPosition(
           target: LatLng(
-            
-            selectedLat.value ?? double.parse(store.first.lat ?? ''),
-            selectedLong.value ?? double.parse(store.first.long ?? ''),
+            selectedLat.value ?? double.parse(store.first.lat ?? '_'),
+            selectedLong.value ?? double.parse(store.first.long ?? '_'),
           ),
           zoom: 15,
         ),
