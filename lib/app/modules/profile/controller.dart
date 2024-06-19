@@ -4,6 +4,7 @@ import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:member_rkm/app/core/values/app_helpers.dart';
 import 'package:member_rkm/app/core/values/show_loading.dart';
 import 'package:member_rkm/app/core/values/snackbars.dart';
@@ -181,8 +182,7 @@ class ProfileController extends GetxController {
         'image':
             await dio.MultipartFile.fromFile(profileImage.value?.path ?? ''),
       if (userController.profile.value?.contact == null ||
-          noTelpController.value.text !=
-              userController.profile.value?.contact)
+          noTelpController.value.text != userController.profile.value?.contact)
         'phone_user': noTelpController.value.text,
       'name': namaController.value.text,
       'birth_place': tempatLahirController.value.text,

@@ -1,8 +1,15 @@
 class ApiUrl {
+<<<<<<< HEAD
   static const String baseUrl = 'http://10.1.0.84:8080/api';
   static const String baseStorageUrl = 'http://10.1.0.84:8080/storage';
   // static const String baseUrl = 'https://member.rkm.co.id/api';
   // static const String baseStorageUrl = 'https://member.rkm.co.id/storage';
+=======
+  // static const String baseUrl = 'http://10.1.0.84:8080/api';
+  // static const String baseStorageUrl = 'http://10.1.0.84:8080/storage';
+  static const String baseUrl = 'https://member.rkm.co.id/api';
+  static const String baseStorageUrl = 'https://member.rkm.co.id/storage';
+>>>>>>> ad15d536cd8204617761fe6d424a3469e762d366
   static EndPoint endPoint = EndPoint();
   static StorageUrl storageUrl = StorageUrl();
 }
