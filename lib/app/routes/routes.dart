@@ -10,8 +10,6 @@ class Routes {
   static const String sendLink = '/sendLink';
   static const String resetPassword = '/resetPassword';
 
-
-
   static const String dashboard = '/dashboard';
   static const String benefit = '/benefit';
   static const String allContent = '/allContent';

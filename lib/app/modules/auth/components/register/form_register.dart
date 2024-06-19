@@ -156,7 +156,7 @@ class FormRegister extends StatelessWidget {
                       controller: controller.barcodeController,
                       suffixIcon: IconButton(
                         color: Colors.white,
-                        onPressed: controller.scanBarcode,
+                        onPressed: controller.startScanning,
                         icon: const Icon(Icons.camera),
                       ),
                     ),

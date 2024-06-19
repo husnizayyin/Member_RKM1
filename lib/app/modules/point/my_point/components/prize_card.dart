@@ -4,6 +4,7 @@ import 'package:member_rkm/app/components/base_button.dart';
 import 'package:member_rkm/app/components/base_card.dart';
 import 'package:member_rkm/app/components/base_shimmer.dart';
 import 'package:member_rkm/app/components/base_text.dart';
+import 'package:member_rkm/app/core/utils/api_url.dart';
 import 'package:member_rkm/app/core/values/app_helpers.dart';
 import 'package:member_rkm/app/core/values/colors.dart';
 
@@ -55,7 +56,7 @@ class PrizeCard extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Image.network(
-                      prizeImage,
+                      '${ApiUrl.baseStorageUrl}/prizes/$prizeImage',
                       loadingBuilder: (BuildContext context, Widget child,
                           ImageChunkEvent? loadingProgress) {
                         return loadingProgress == null

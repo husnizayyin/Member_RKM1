@@ -1,8 +1,8 @@
 class ApiUrl {
   static const String baseUrl = 'http://10.1.0.84:8080/api';
   static const String baseStorageUrl = 'http://10.1.0.84:8080/storage';
-  // static const String baseUrl = 'http://member.rkm.co.id/api';
-  // static const String baseStorageUrl = 'http://member.rkm.co.id/storage';
+  // static const String baseUrl = 'https://member.rkm.co.id/api';
+  // static const String baseStorageUrl = 'https://member.rkm.co.id/storage';
   static EndPoint endPoint = EndPoint();
   static StorageUrl storageUrl = StorageUrl();
 }
@@ -52,6 +52,9 @@ class EndPoint {
 
   static const String sendOtpDeleteAccount = '/account/delete/send-otp';
   static const String deleteAccount = '/account/delete';
+
+  //redeem point
+  static const String prizeList = '/point/prize_list';
 }
 
 class StorageUrl {

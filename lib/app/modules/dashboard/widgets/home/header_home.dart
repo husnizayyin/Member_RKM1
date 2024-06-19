@@ -44,15 +44,16 @@ class HeaderHome extends StatelessWidget {
                         category:
                             controller.profile.value?.loyalty?.toLowerCase() ??
                                 '',
-                        noMember: controller.profile.value?.noMember?? '',
+                        noMember: controller.profile.value?.noMember ?? '',
                         email: controller.profile.value?.email ?? '',
-                        phoneNumber:
-                            controller.profile.value?.contact ?? '',
-                        totalPoint: controller.profile.value?.voucherTotal ?? '', totalVoucher: '0',
+                        phoneNumber: controller.profile.value?.contact ?? '',
+                        totalPoint:
+                            controller.profile.value?.voucherTotal ?? '',
+                        totalVoucher: '0',
                         // totalVoucher: controller
-                               // .profile.value?.addOn?.voucherTotal
-                                //.toString() ??
-                            //'',
+                        // .profile.value?.addOn?.voucherTotal
+                        //.toString() ??
+                        //'',
                       ),
             const SizedBox(height: 10),
             const HeaderMenu(),

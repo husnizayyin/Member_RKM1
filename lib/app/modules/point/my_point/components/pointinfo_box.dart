@@ -2,9 +2,11 @@ import 'package:boxicons/boxicons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:member_rkm/app/components/base_bottomsheet.dart';
 import 'package:member_rkm/app/components/base_text.dart';
 import 'package:member_rkm/app/core/values/app_helpers.dart';
 import 'package:member_rkm/app/core/values/colors.dart';
+import 'package:member_rkm/app/modules/dashboard/components/home/menu_bottomsheet.dart';
 import 'package:member_rkm/app/modules/point/my_point/components/proggress_card.dart';
 
 class PointInfoBox extends StatelessWidget {
@@ -56,7 +58,7 @@ class PointInfoBox extends StatelessWidget {
                           children: [
                             TextSpan(
                               text: '${AppHelpers.thousandFormat(totalPoint)} ',
-                              style: const  TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -117,7 +119,16 @@ class PointInfoBox extends StatelessWidget {
                           ),
                         ),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            baseBottomSheet(
+                              200,
+                              const MenuBottomSheet(
+                                  image: 'assets/images/ongkir.svg',
+                                  title: 'Tentang Poin',
+                                  subtitle:
+                                      'Poin yang dapat ditukarkan dengan kelipatan 50'),
+                            );
+                          },
                           borderRadius: BorderRadius.circular(3),
                           child: const Padding(
                             padding: EdgeInsets.all(5),

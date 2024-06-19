@@ -5,7 +5,6 @@ import 'package:member_rkm/app/modules/auth/widgets/forgot_password/reset_passwo
 import 'package:member_rkm/app/modules/auth/widgets/forgot_password/reset_password/view.dart';
 import 'package:member_rkm/app/modules/auth/widgets/forgot_password/send_link/binding.dart';
 import 'package:member_rkm/app/modules/auth/widgets/forgot_password/send_link/view.dart';
-
 import 'package:member_rkm/app/modules/auth/widgets/login/binding.dart';
 import 'package:member_rkm/app/modules/auth/widgets/login/view.dart';
 import 'package:member_rkm/app/modules/auth/widgets/register/binding.dart';
@@ -87,7 +86,7 @@ abstract class AppPages {
       page: () => const IdentifyPage(),
       binding: IdentifyBinding(),
     ),
-     GetPage(
+    GetPage(
       name: Routes.sendLink,
       page: () => const SendLinkPage(),
       binding: SendLinkBinding(),
@@ -183,16 +182,14 @@ abstract class AppPages {
       binding: ResetPinBinding(),
     ),
     GetPage(
-      name: Routes.success,
-      page: () => const SuccessPage(),
-      binding: SuccessBinding(),
-      transition: Transition.downToUp
-    ),
+        name: Routes.success,
+        page: () => const SuccessPage(),
+        binding: SuccessBinding(),
+        transition: Transition.downToUp),
     GetPage(
-      name: Routes.handling_redeem,
-      page: () => UndianHandling(),
-      binding: DashboardBinding(),
-      transition: Transition.downToUp
-    )
+        name: Routes.handling_redeem,
+        page: () => UndianHandling(),
+        binding: DashboardBinding(),
+        transition: Transition.downToUp)
   ];
 }

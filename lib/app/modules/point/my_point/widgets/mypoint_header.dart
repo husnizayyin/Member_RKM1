@@ -31,12 +31,13 @@ class MyPointHeader extends StatelessWidget {
             size: 12,
           ),
           const SizedBox(height: 15),
-          // PointInfoBox(
-          //   totalPoint: int.parse(userController.profile.value?.point ?? ''),
-          //   totalTransaction: userController.profile.value?.totalSpending ?? 0,
-          //   category: userController.profile.value?.category ?? '',
-          //   lastTransaction: DateTime.now(),
-          // ),
+          PointInfoBox(
+            // totalPoint: int.parse(userController.profile.value?.loyaltyPoint ?? ''),
+            totalPoint: userController.profile.value?.loyaltyPoint ?? 0,
+            totalTransaction: userController.profile.value?.spendingTotal ?? 0,
+            category: userController.profile.value?.category ?? '',
+            lastTransaction: DateTime.now(),
+          ),
         ],
       ),
     );

@@ -3,6 +3,7 @@
 //     final content = contentFromJson(jsonString);
 
 import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
 
 Content contentFromJson(String str) => Content.fromJson(json.decode(str));

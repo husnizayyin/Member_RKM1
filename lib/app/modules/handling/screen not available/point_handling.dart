@@ -14,10 +14,11 @@ class PointHandling extends StatelessWidget {
       children: [
         const SizedBox(height: 150),
         SvgPicture.asset(
-            'assets/images/point.svg',
-             width: 50,
-             height: 40,
-             alignment: Alignment.center,),
+          'assets/images/point.svg',
+          width: 50,
+          height: 40,
+          alignment: Alignment.center,
+        ),
         const Padding(
           padding: EdgeInsets.all(10),
           child: Column(
@@ -29,24 +30,21 @@ class PointHandling extends StatelessWidget {
                   fontSize: 16.0,
                   fontFamily: 'Maison Neue',
                   fontWeight: FontWeight.w800,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
                 ),
               ),
               Text(
                 'Kamu sudah menjadi bagain dari kami,',
                 style: TextStyle(
-                  fontSize: 14.0,
-                  fontFamily: 'Maison Neue',
-                  fontWeight: FontWeight.w400
-                ),
+                    fontSize: 14.0,
+                    fontFamily: 'Maison Neue',
+                    fontWeight: FontWeight.w400),
               ),
               Text(
                 'kami akan segera infoin, apabila hadiah sudah tersedia.',
                 style: TextStyle(
-                  fontSize: 14.0,
-                  fontFamily: 'Maison Neue',
-                  fontWeight: FontWeight.w400
-                ),
+                    fontSize: 14.0,
+                    fontFamily: 'Maison Neue',
+                    fontWeight: FontWeight.w400),
               )
             ],
           ),

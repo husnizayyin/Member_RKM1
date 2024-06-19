@@ -5,12 +5,12 @@ untuk konten pada menu redeem, karena ini bersifat sementara/pre-launch jadi
 dihandle oleh variable PointHandling()
 */
 
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:member_rkm/app/components/base_appbar.dart';
 import 'package:member_rkm/app/core/values/colors.dart';
-import 'package:member_rkm/app/modules/handling/screen%20not%20available/point_handling.dart';
+import 'package:member_rkm/app/modules/point/my_point/widgets/list_prize.dart';
+import 'package:member_rkm/app/modules/point/my_point/widgets/mypoint_header.dart';
 
 class MyPointPage extends StatelessWidget {
   const MyPointPage({super.key});
@@ -30,11 +30,11 @@ class MyPointPage extends StatelessWidget {
           width: Get.width,
           child: Column(
             children: [
-              PointHandling()
-              //Diganti module/point/my_point/view             
+              // PointHandling()
+              //Diganti module/point/my_point/view
 
-              //MyPointHeader(),
-              //ListPrize(),
+              MyPointHeader(),
+              ListPrize(),
             ],
           ),
         ),

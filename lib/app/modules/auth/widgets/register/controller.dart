@@ -1,6 +1,6 @@
-import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:get/get.dart';
 import 'package:member_rkm/app/core/values/show_loading.dart';
 import 'package:member_rkm/app/core/values/snackbars.dart';
@@ -23,7 +23,10 @@ class RegisterController extends GetxController {
   final loading = false.obs;
 
   final username = Rx<String?>(null);
-  final barcode = ''.obs;
+  // final barcode = ''.obs;
+  // final barcodeController = TextEditingController();
+
+  var qrText = ''.obs;
   final barcodeController = TextEditingController();
 
   @override
@@ -45,7 +48,7 @@ class RegisterController extends GetxController {
       'phone_user': phoneController.value.text,
       'password': passwordController.value.text,
       'password_confirmation': confirmPasswordController.value.text,
-      'referal': barcode.value.toString(),
+      'referal': qrText.value.toString(),
     });
 
     showLoading();
@@ -105,14 +108,36 @@ class RegisterController extends GetxController {
     }
   }
 
-  Future<void> scanBarcode() async {
+  // --SCAN BARCODE--
+  // Future<void> scanBarcode() async {
+  //   try {
+  //     var result = await BarcodeScanner.scan();
+  //     barcode.value = result.rawContent;
+  //     barcodeController.text = result.rawContent;
+  //     print(result.rawContent);
+  //   } catch (e) {
+  //     barcode.value = 'Failed to get the barcode.';
+  //   }
+  // }
+
+  // --SCAN QR BARCODE--
+  Future<void> startScanning() async {
+    String barcodeScanRes;
     try {
-      var result = await BarcodeScanner.scan();
-      barcode.value = result.rawContent;
-      barcodeController.text = result.rawContent;
-      print(result.rawContent);
+      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+        '#ff6666', // the line color
+        'Cancel', // the cancel button text
+        true, // whether to show the flash icon
+        ScanMode.QR,
+      );
     } catch (e) {
-      barcode.value = 'Failed to get the barcode.';
+      barcodeScanRes = 'Failed to get scan result';
+    }
+
+    if (barcodeScanRes != '-1') {
+      qrText.value = barcodeScanRes;
+      barcodeController.text = barcodeScanRes;
+      print(barcodeScanRes);
     }
   }
 }
